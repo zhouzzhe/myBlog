@@ -1,6 +1,10 @@
 "use client";
-import { motion } from "motion/react";
-import { RegisterOptions, SubmitHandler, UseFormRegister, useForm } from "react-hook-form";
+import {
+  RegisterOptions,
+  SubmitHandler,
+  UseFormRegister,
+  useForm,
+} from "react-hook-form";
 
 // 輸入框
 interface InputProp {
@@ -52,7 +56,6 @@ interface FormValues {
 }
 
 export default function Contact() {
-
   // 處理表單提交（發送到 Formspree）
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {

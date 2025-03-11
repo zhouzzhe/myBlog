@@ -70,7 +70,7 @@ export default function Contact() {
       formData.append("entry.1041210156", data.title);
       formData.append("entry.361593399", data.message);
 
-      const response = await fetch(
+      const response:any = await fetch(
         "https://docs.google.com/forms/d/e/1FAIpQLSdAPhZ5xvuTW5Rv-qVVo0qhPyI11vnZ-_1O9hlnsqoiPoLDVA/formResponse",
         {
           method: "POST",

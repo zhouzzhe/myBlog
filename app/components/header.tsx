@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
-import {
-  motion,
-  useScroll,
-  useMotionValueEvent,
-  useSpring,
-} from "motion/react";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
+import { useState } from "react";
 
 export default function Header() {
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -41,7 +36,7 @@ export default function Header() {
       {/* 主要LOGO */}
       <Link
         href="/"
-        className="hover:text-myOrange mx-10 px-3 py-1 transition-all hover:scale-105"
+        className="mx-10 px-3 py-1 transition-all hover:scale-105 hover:text-myOrange"
       >
         HOME
       </Link>
@@ -58,7 +53,7 @@ export default function Header() {
             <Link
               href="https://zhouzzhe.github.io/Home.html"
               key={index}
-              className="odd:hover:text-myOrange mx-3 cursor-pointer px-3 py-1 transition-all hover:scale-105"
+              className="mx-3 cursor-pointer px-3 py-1 transition-all hover:scale-105 odd:hover:text-myOrange"
             >
               Album
             </Link>
@@ -66,7 +61,7 @@ export default function Header() {
             <Link
               href={`/${item.toLowerCase()}`}
               key={index}
-              className="odd:hover:text-myOrange mx-3 cursor-pointer px-3 py-1 transition-all hover:scale-105"
+              className="mx-3 cursor-pointer px-3 py-1 transition-all hover:scale-105 odd:hover:text-myOrange"
             >
               {item}
             </Link>
@@ -77,7 +72,7 @@ export default function Header() {
 
       {/* 移動版漢堡式選單 */}
       <button className="z-50 mx-10 px-3 py-1 md:hidden" onClick={toggleMenu}>
-        <div className="relative h-6 w-6 hover:scale-125 transition-all duration-300">
+        <div className="relative h-6 w-6 transition-all duration-300 hover:scale-125">
           <i
             className={`bx bx-sm bx-menu absolute inset-0 transition-opacity duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`}
           ></i>
@@ -102,7 +97,7 @@ export default function Header() {
                   onClick={toggleMenu} // 點擊選項關閉選單
                 >
                   {item}
-                  <span className="bg-myOrange absolute -bottom-[1px] left-1/2 h-[1px] w-0 -translate-x-1/2 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-[1px] left-1/2 h-[1px] w-0 -translate-x-1/2 bg-myOrange transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ) : (
                 <Link
@@ -112,7 +107,7 @@ export default function Header() {
                   onClick={toggleMenu} // 點擊選項關閉選單
                 >
                   {item}
-                  <span className="bg-myOrange absolute -bottom-[1px] left-1/2 h-[1px] w-0 -translate-x-1/2 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-[1px] left-1/2 h-[1px] w-0 -translate-x-1/2 bg-myOrange transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ),
             )}

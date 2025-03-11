@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import NextTopLoader from "nextjs-toploader";
+import PageTransition from "./pageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} flex flex-col overscroll-none antialiased`}
       >
         <NextTopLoader color="#ff6144" showSpinner={false} />
-        <Header />
-        {children}
-        <Footer />
+        <PageTransition>
+          <Header />
+          {children}
+          <Footer />
+        </PageTransition>
       </body>
     </html>
   );

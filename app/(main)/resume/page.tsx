@@ -7,12 +7,12 @@ import { SectionTitle } from "./components/SectionTitle";
 interface infoCardProp {
   date: string;
   imageSrc?: string;
-  label?: string;
+  label: string;
   content?: string;
 }
 function InfoCard({ date, imageSrc, label, content }: infoCardProp) {
   return (
-    <div className="flex justify-around">
+    <div className="mb-5 flex justify-around">
       <div className="w-1/3 px-10 text-right text-lg font-medium italic text-gray-600">
         {date}
       </div>
@@ -26,7 +26,8 @@ function InfoCard({ date, imageSrc, label, content }: infoCardProp) {
             className="h-24 w-24 object-contain"
           />
         )}
-        <div className="flex flex-col justify-center max-w-2xl">
+        <div className="flex max-w-2xl flex-col justify-center">
+          <div className="text-lg font-semibold">{label}</div>
           <div className={`py-2 pr-10 text-base ${imageSrc ? "" : "indent-8"}`}>
             {content}
           </div>
@@ -45,7 +46,7 @@ function SkillCard({ label, iconClass }: skillCardProp) {
   return (
     <div className="flex h-14 w-14 flex-col justify-center rounded-full text-center align-middle">
       <i className={`bx md:bx-md bx-lg ${iconClass}`}></i>
-      <div className="text-xs leading-[10px] hidden md:block">{label}</div>
+      <div className="hidden text-xs leading-[10px] md:block">{label}</div>
     </div>
   );
 }
@@ -112,7 +113,7 @@ function ProjectCard({ children, ...arg }: ProjectCardProp) {
           </div>
         </div>
         {children && (
-          <div className="md:block mb-4 hidden">
+          <div className="mb-4 hidden md:block">
             <p className="text-md font-semibold">網站詳細功能：</p>
             {children}
           </div>
@@ -227,7 +228,7 @@ export default function Resume() {
       {/* 自傳 */}
       <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5">
         <SectionTitle label="自傳" />
-        <div className="px-5 sm:px-24 leading-relaxed max-w-7xl mx-auto">
+        <div className="mx-auto max-w-7xl px-5 leading-relaxed sm:px-24">
           <p>
             我是周哲緯，畢業於中興大學。善於溝通且冷靜客觀，認真負責。熱情接觸新事物，對於交辦事項總是有規劃且盡力完成。
           </p>
@@ -302,4 +303,4 @@ export default function Resume() {
       </section>
     </div>
   );
-  }
+}
