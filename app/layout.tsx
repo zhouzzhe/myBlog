@@ -5,6 +5,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import NextTopLoader from "nextjs-toploader";
 import PageTransition from "./pageTransition";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         <PageTransition>
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </PageTransition>
       </body>
