@@ -28,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-TW">
+      <head>
+        <link rel="icon" href="/favicon.ico/camera.png"></link>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex flex-col overscroll-none antialiased`}
       >

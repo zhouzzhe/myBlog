@@ -38,12 +38,20 @@ export default function Header() {
         href="/"
         className="mx-10 px-3 py-1 transition-all hover:scale-105 hover:text-myOrange"
       >
-        HOME
+        {/* HOME */}
+        <div className="flex flex-col align-middle">
+          <span className="text-center text-xl font-medium tracking-widest">
+            周哲緯
+          </span>
+          <span className="mx-auto w-auto text-[0.5px] font-normal leading-3 tracking-widest">
+            Zhou zhe wei
+          </span>
+        </div>
       </Link>
       {/* 主要LOGO */}
 
       {/* 電腦版選單 */}
-      <nav className="mx-10 hidden flex-row md:flex">
+      <nav className="mx-10 hidden flex-row items-center md:flex">
         {["Resume", "|", "Album", "|", "Contact"].map((item, index) =>
           item === "|" ? (
             <div key={index} className="mx-3 px-3 py-1">
