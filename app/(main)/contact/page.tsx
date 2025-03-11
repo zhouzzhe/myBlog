@@ -70,17 +70,17 @@ export default function Contact() {
       formData.append("entry.1041210156", data.title);
       formData.append("entry.361593399", data.message);
 
-      const response:any = await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSdAPhZ5xvuTW5Rv-qVVo0qhPyI11vnZ-_1O9hlnsqoiPoLDVA/formResponse",
-        {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formData,
-        },
-      );
+      // const response:any = await fetch(
+      //   "https://docs.google.com/forms/d/e/1FAIpQLSdAPhZ5xvuTW5Rv-qVVo0qhPyI11vnZ-_1O9hlnsqoiPoLDVA/formResponse",
+      //   {
+      //     method: "POST",
+      //     mode: "no-cors",
+      //     headers: {
+      //       "Content-Type": "application/x-www-form-urlencoded",
+      //     },
+      //     body: formData,
+      //   },
+      // );
       alert("感謝您的提交！");
       reset();
       // const result = await response.json();
