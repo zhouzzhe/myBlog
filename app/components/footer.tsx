@@ -69,7 +69,7 @@ export default function Footer() {
   return (
     <footer className="mt-auto">
       {/* 固定文字 */}
-      <div
+      {/* <div
         className="fixed -z-20 flex rotate-2 flex-col justify-center"
         style={{
           top: "calc(3rem + 30vw)",
@@ -80,12 +80,12 @@ export default function Footer() {
         <span className="mx-auto w-auto text-xl font-normal tracking-widest">
           Zhou zhe wei
         </span>
-      </div>
+      </div> */}
       {/* 固定文字 */}
 
       {/* 聯絡資訊 */}
       <div className="mx-20 flex flex-col items-start justify-between border-t-2 border-black px-8 pb-8 pt-2 md:flex-row md:items-center">
-        <ContactInfo label="bx-mobile" content="0963912230" />
+        {/* <ContactInfo label="bx-mobile" content="0963912230" /> */}
         <ContactInfo label="bx-envelope" content="zzhe828@gmail.com" />
         <Link href="https://www.instagram.com/zzhe__/" className="cursor-default">
           <ContactInfo label="bxl-instagram" content="zzhe__" />
