@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "boxicons/css/boxicons.min.css";
 import { SectionTitle } from "./components/SectionTitle";
+import DownloadButton from "./components/downloadButton";
 
 // 工作、學歷
 interface infoCardProp {
@@ -150,11 +151,11 @@ export default function Resume() {
               <i className="bx bx-sm bxl-gmail"></i>
               <span>zzhe828@gmail.com</span>
             </div>
-            <span className="hidden text-gray-400 sm:block">|</span>
+            {/* <span className="hidden text-gray-400 sm:block">|</span>
             <div className="flex items-center gap-2">
               <i className="bx bx-sm bx-mobile"></i>
               <span>0963912230</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -193,7 +194,7 @@ export default function Resume() {
       </section>
 
       {/* 技能 */}
-      <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5">
+      <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5 select-none">
         <SectionTitle label="技能" />
         <div className="mb-10 flex flex-row">
           <div className="w-1/2 px-5 sm:px-20">
@@ -301,6 +302,7 @@ export default function Resume() {
           ></ProjectCard>
         </div>
       </section>
+      <DownloadButton />
     </div>
   );
 }

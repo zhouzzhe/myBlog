@@ -2,6 +2,7 @@
 import Link from "next/link";
 import "boxicons/css/boxicons.min.css";
 import { useEffect, useRef, useState } from "react";
+import { easeIn, motion } from "framer-motion";
 
 // 可重用的聯絡資訊元件
 interface ContactInfoProp {
@@ -11,9 +12,11 @@ interface ContactInfoProp {
   children?: React.ReactNode;
 }
 function ContactInfo({ label, content, children, className }: ContactInfoProp) {
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const titleRef = useRef<HTMLDivElement>(null);
+  const [isClick, setIsClick] = useState<boolean>(false);
 
+  // 頁面看到footer的50%之後，會啟動動畫
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,6 +40,7 @@ function ContactInfo({ label, content, children, className }: ContactInfoProp) {
     };
   }, []);
 
+  // 點擊email會複製zzhe828@gmail.com，並啟動動畫
   const copyEmail = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -46,10 +50,20 @@ function ContactInfo({ label, content, children, className }: ContactInfoProp) {
     }
   };
 
+  const handleClick = () => {
+    if (isClick) return; // 防止重複點擊
+    setIsClick(true);
+    setTimeout(() => {
+      setIsClick(false);
+    }, 1000);
+  };
+
   return (
-    <div
-      className="group m-5 cursor-pointer transition-all hover:scale-105"
+    <motion.div
       ref={titleRef}
+      className="group m-5 cursor-pointer transition-all hover:scale-105"
+      initial="initial"
+      onClick={handleClick}
     >
       <i
         className={`bx ${isAnimating ? "bx-tada" : ""} bx-fw bx-sm ${label} ${className} group-hover:text-myOrange`}
@@ -59,15 +73,60 @@ function ContactInfo({ label, content, children, className }: ContactInfoProp) {
           animationName: isAnimating ? "tada" : "none",
         }}
       ></i>
-      {content && <span onClick={() => copyEmail(content)}>：{content}</span>}
+      <span>：</span>
+      {content && (
+        <>
+          <motion.div
+            className={`inline-block ${isClick ? "hidden" : ""}`}
+            onClick={() => copyEmail(content)}
+            initial={{ y: 0, opacity: 1 }}
+            animate={
+              isClick
+                ? {
+                    y: [0, 15, -15, 0],
+                    opacity: [1, 0, 0, 1],
+                    transition: {
+                      repeatDelay: 0.4,
+                      duration: 1.3,
+                      ease: easeIn,
+                      repeat: 1,
+                    },
+                  }
+                : "initial"
+            }
+          >
+            {content}
+          </motion.div>
+          <motion.div
+            className={`inline-block rounded-lg border-[1.5px] border-myOrange px-2 text-myOrange ${!isClick ? "hidden" : ""}`}
+            initial={{ y: 0, opacity: 0 }}
+            animate={
+              isClick
+                ? {
+                    y: [-15, 0, 0, 15],
+                    opacity: [0, 1, 1, 0],
+                    transition: {
+                      repeatDelay: 0.4,
+                      duration: 1,
+                      ease: easeIn,
+                      repeat: 1,
+                    },
+                  }
+                : "initial"
+            }
+          >
+            已複製！
+          </motion.div>
+        </>
+      )}
       {children}
-    </div>
+    </motion.div>
   );
 }
 
 export default function Footer() {
   return (
-    <footer className="mt-auto">
+    <footer className="mt-auto select-none">
       {/* 固定文字 */}
       {/* <div
         className="fixed -z-20 flex rotate-2 flex-col justify-center"
@@ -87,7 +146,10 @@ export default function Footer() {
       <div className="mx-20 flex flex-col items-start justify-between border-t-2 border-black px-8 pb-8 pt-2 md:flex-row md:items-center">
         {/* <ContactInfo label="bx-mobile" content="0963912230" /> */}
         <ContactInfo label="bx-envelope" content="zzhe828@gmail.com" />
-        <Link href="https://www.instagram.com/zzhe__/" className="cursor-default">
+        <Link
+          href="https://www.instagram.com/zzhe__/"
+          className="cursor-default"
+        >
           <ContactInfo label="bxl-instagram" content="zzhe__" />
         </Link>
       </div>

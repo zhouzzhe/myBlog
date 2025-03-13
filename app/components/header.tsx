@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 flex justify-between px-3 py-10"
+      className="sticky top-0 flex justify-between px-3 py-10 select-none"
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },

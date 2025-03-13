@@ -33,9 +33,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico/camera.png"></link>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex flex-col overscroll-none antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex flex-col cursor-default overscroll-none antialiased`}
       >
-        <NextTopLoader color="#ff6144" showSpinner={false} />
+        {/* <NextTopLoader color="#ff6144" showSpinner={false} /> */}
         <PageTransition>
           <Header />
           {children}

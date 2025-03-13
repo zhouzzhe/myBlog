@@ -41,7 +41,7 @@ export function SectionTitle({ label }: { label: string }) {
   }, []);
 
   return (
-    <div className="mb-10 flex justify-center" ref={titleRef}>
+    <div className="mb-10 flex justify-center select-none" ref={titleRef}>
       <div className="relative">
         <div className="relative z-10 px-4 py-[2px] text-center text-3xl font-bold text-white mix-blend-difference">
           {label}
