@@ -29,7 +29,9 @@ function InfoCard({ date, imageSrc, label, content }: infoCardProp) {
         )}
         <div className="flex max-w-2xl flex-col justify-center">
           <div className="text-lg font-semibold">{label}</div>
-          <div className={`py-2 pr-10 text-base ${imageSrc ? "" : "indent-8"}`}>
+          <div
+            className={`py-2 pr-10 text-base leading-snug ${imageSrc ? "" : "indent-8"}`}
+          >
             {content}
           </div>
         </div>
@@ -194,7 +196,7 @@ export default function Resume() {
       </section>
 
       {/* 技能 */}
-      <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5 select-none">
+      <section className="mt-16 select-none border-b-2 border-gray-400 pb-10 pt-5">
         <SectionTitle label="技能" />
         <div className="mb-10 flex flex-row">
           <div className="w-1/2 px-5 sm:px-20">
