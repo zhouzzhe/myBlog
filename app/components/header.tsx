@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -10,7 +10,6 @@ export default function Header() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     // 獲取前一個值
     const previous = scrollY.getPrevious() ?? 0;
-    // console.log(previous);
 
     // 如果向下滾動，隱藏 header；向上滾動，顯示 header
     if (latest > previous && latest > 100) {
@@ -23,9 +22,20 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden"); // 開啟行動版選單後禁止捲動
+    } else {
+      document.body.classList.remove("overflow-hidden"); // 恢復捲動
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
+
   return (
     <motion.header
-      className="sticky top-0 flex justify-between px-3 py-10 select-none"
+      className="sticky top-0 z-50 flex select-none justify-between px-3 py-10"
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -38,12 +48,11 @@ export default function Header() {
         href="/"
         className="mx-10 px-3 py-1 transition-all hover:scale-105 hover:text-myOrange"
       >
-        {/* HOME */}
         <div className="flex flex-col align-middle">
-          <span className="text-center text-xl font-medium tracking-widest">
+          <span className="text-center text-[20px] font-medium tracking-widest">
             周哲緯
           </span>
-          <span className="mx-auto w-auto text-[0.5px] font-normal leading-3 tracking-widest">
+          <span className="mx-auto w-auto text-[12px] font-normal leading-3 tracking-[0.5px]">
             Zhou zhe wei
           </span>
         </div>
@@ -80,7 +89,7 @@ export default function Header() {
 
       {/* 移動版漢堡式選單 */}
       <button className="z-50 mx-10 px-3 py-1 md:hidden" onClick={toggleMenu}>
-        <div className="relative h-6 w-6 transition-all duration-300 hover:scale-125">
+        <div className="relative h-6 w-6 transition-all duration-300 hover:scale-125 hover:text-myOrange">
           <i
             className={`bx bx-sm bx-menu absolute inset-0 transition-opacity duration-300 ${isOpen ? "opacity-0" : "opacity-100"}`}
           ></i>
@@ -91,11 +100,12 @@ export default function Header() {
       </button>
 
       {isOpen && (
-        <div
-          className="fixed -top-20 bottom-0 left-0 right-0 flex flex-col items-center justify-center bg-white bg-opacity-60"
-          onClick={toggleMenu}
-        >
-          <nav className="flex flex-col border border-black bg-white p-6">
+        <>
+          <div
+            className="fixed bottom-0 left-0 right-0 top-0 flex flex-col items-center justify-center bg-white bg-opacity-75"
+            onClick={toggleMenu}
+          ></div>
+          <nav className="absolute right-[calc(50%-43px)] top-96 flex flex-col border border-black bg-white p-6 md:right-[calc(50%-60px)]">
             {["Resume", "Album", "Contact"].map((item) =>
               item === "Album" ? (
                 <Link
@@ -120,8 +130,9 @@ export default function Header() {
               ),
             )}
           </nav>
-        </div>
+        </>
       )}
+
       {/* 移動版漢堡式選單 */}
     </motion.header>
   );
