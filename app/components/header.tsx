@@ -33,6 +33,11 @@ export default function Header() {
     };
   }, [isOpen]);
 
+  const blurVariants = {
+    hidden: { opacity: 0, filter: "blur(3px)" },
+    enter: { opacity: 1, filter: "blur(0px)" },
+  };
+
   return (
     <motion.header
       className="sticky top-0 z-50 flex select-none justify-between px-3 py-10"
@@ -101,11 +106,21 @@ export default function Header() {
 
       {isOpen && (
         <>
-          <div
+          <motion.div
             className="fixed bottom-0 left-0 right-0 top-0 flex flex-col items-center justify-center bg-white bg-opacity-75"
             onClick={toggleMenu}
-          ></div>
-          <nav className="absolute right-[calc(50%-43px)] top-96 flex flex-col border border-black bg-white p-6 md:right-[calc(50%-60px)]">
+            variants={blurVariants}
+            initial="hidden"
+            animate="enter"
+            transition={{ duration: 0.3, ease: "linear" }}
+          ></motion.div>
+          <motion.nav
+            className="absolute right-[calc(50%-43px)] top-96 flex flex-col border border-black bg-white p-6 md:right-[calc(50%-60px)]"
+            variants={blurVariants}
+            initial="hidden"
+            animate="enter"
+            transition={{ duration: 0.3, ease: "linear" }}
+          >
             {["Resume", "Album", "Contact"].map((item) =>
               item === "Album" ? (
                 <Link
@@ -129,7 +144,7 @@ export default function Header() {
                 </Link>
               ),
             )}
-          </nav>
+          </motion.nav>
         </>
       )}
 
