@@ -15,6 +15,7 @@
     sans-serif;
   cursor: default;
 }
+
 @media (max-width: 768px) {
   :root {
     font-size: xx-small;
@@ -22,11 +23,5 @@
 }
 
 body {
-  /* background-image: url("../public/image/background.jpg"); */
-  /* background-size: unset; */
-  /* background-position: center; */
-  /* background-attachment: fixed; */
-  /* min-width: auto; */
-  /* font-family: Arial, Helvetica, sans-serif; */
   min-height: 100vh;
 }

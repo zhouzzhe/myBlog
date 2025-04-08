@@ -73,7 +73,7 @@ export default function Header() {
             </div>
           ) : item === "Album" ? (
             <Link
-              href="https://zhouzzhe.github.io/Home.html"
+              href="https://rindou-zine.vercel.app/"
               key={index}
               className="mx-3 cursor-pointer px-3 py-1 transition-all hover:scale-105 odd:hover:text-myOrange"
             >
