@@ -7,11 +7,10 @@ import { easeIn, motion } from "framer-motion";
 // 可重用的聯絡資訊元件
 interface ContactInfoProp {
   label: string;
-  content?: string;
+  content: string;
   className?: string;
-  children?: React.ReactNode;
 }
-function ContactInfo({ label, content, children, className }: ContactInfoProp) {
+function ContactInfo({ label, content, className }: ContactInfoProp) {
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const titleRef = useRef<HTMLDivElement>(null);
   const [isClick, setIsClick] = useState<boolean>(false);
@@ -74,7 +73,7 @@ function ContactInfo({ label, content, children, className }: ContactInfoProp) {
         }}
       ></i>
       <span>：</span>
-      {content && (
+      {content.includes("@") ? (
         <>
           <motion.div
             className={`inline-block ${isClick ? "hidden" : ""}`}
@@ -118,8 +117,9 @@ function ContactInfo({ label, content, children, className }: ContactInfoProp) {
             已複製！
           </motion.div>
         </>
+      ) : (
+        <>{content}</>
       )}
-      {children}
     </motion.div>
   );
 }

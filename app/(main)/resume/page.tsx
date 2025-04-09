@@ -14,7 +14,7 @@ interface infoCardProp {
 function InfoCard({ date, imageSrc, label, content }: infoCardProp) {
   return (
     <div className="mb-5 flex justify-around">
-      <div className="w-1/3 px-10 text-right text-lg font-medium italic text-gray-600">
+      <div className="w-1/3 px-10 text-right text-lg font-medium italic tracking-wider text-gray-600">
         {date}
       </div>
       <div className="flex w-3/5 gap-5">
@@ -166,18 +166,18 @@ export default function Resume() {
       <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5">
         <SectionTitle label="工作經驗" />
         <InfoCard
-          date="7/2024-11/2024"
+          date="7/2024 - 11/2024"
           // imageSrc="/image/ispan.jpeg"
           label="前端工程師養成班 / iSpan資展國際"
           content="參加資展國際(原資策會)前端工程師養成班，並於2個月內團體完成專案-寵物服務及購物平台，在團體中擔任組長一職，完成網站結構架設、領養功能、組員檔案合併及協助組員解決問題。"
         />
         <InfoCard
-          date="12/2022-6/2024"
+          date="12/2022 - 6/2024"
           label="土木工程師 / 宜順工程顧問股份有限公司"
           content="檢測河堤安全危害狀況、協助內業報告製作、與政府機關人員合作並報告業務內容以及檢測成果。"
         />
         <InfoCard
-          date="10/2018-6/2019"
+          date="10/2018 - 6/2019"
           // imageSrc="/image/FamilyMart.png"
           label="門市店員 / 全家便利商店股份有限公司"
           content="處理門市店內結帳、貨物管理等服務。"
@@ -188,7 +188,7 @@ export default function Resume() {
       <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5">
         <SectionTitle label="學歷" />
         <InfoCard
-          date="9/2017-6/2021"
+          date="9/2017 - 6/2021"
           imageSrc="/image/Chung-Hsing.jpg"
           label="國立中興大學"
           content="土木工程學系 / 學士"
@@ -278,6 +278,18 @@ export default function Resume() {
       <section className="mt-16 border-b-2 border-gray-400 pb-10 pt-5">
         <SectionTitle label="專案" />
         <div className="grid grid-cols-1 gap-12 px-14 lg:grid-cols-2">
+          <ProjectCard
+            src="https://rindou-zine.vercel.app/"
+            imageSrc="/image/rindou-zine.png"
+            title="Rindou Zine 雜誌平台"
+            content="以日本雜誌為發想，以圖片為主文字為輔的生活紀錄誌，透過獨特的影像敘事，紀錄了由不同創作者視角中的世界。"
+            frontend="Next.js、Tailwind CSS、TypeScript、Framer-motion"
+          >
+            <ul className="list-inside list-disc space-y-1 text-gray-700">
+              <li>響應式網站(RWD) - 能在不同裝置中查看。</li>
+              <li>篩選作者及年份 - 協助使用者快速找到符合條件的品項。</li>
+            </ul>
+          </ProjectCard>
           <ProjectCard
             src="https://github.com/zhouzzhe/PetLove"
             imageSrc="/image/petlove.png"
