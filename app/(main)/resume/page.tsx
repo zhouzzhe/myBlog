@@ -27,7 +27,7 @@ function InfoCard({ date, imageSrc, label, content }: infoCardProp) {
             className="h-24 w-24 object-contain"
           />
         )}
-        <div className="flex max-w-2xl flex-col justify-center">
+        <div className="flex max-w-2xl flex-col">
           <div className="text-lg font-semibold">{label}</div>
           <div
             className={`py-2 pr-10 text-base leading-snug ${imageSrc ? "" : "indent-8"}`}
@@ -285,7 +285,7 @@ export default function Resume() {
             content="以日本雜誌為發想，以圖片為主文字為輔的生活紀錄誌，透過獨特的影像敘事，紀錄了由不同創作者視角中的世界。"
             frontend="Next.js、Tailwind CSS、TypeScript、Framer-motion"
           >
-            <ul className="list-inside list-disc space-y-1 text-gray-700">
+            <ul className="mt-0.5 list-inside list-disc space-y-1 text-gray-700">
               <li>響應式網站(RWD) - 能在不同裝置中查看。</li>
               <li>篩選作者及年份 - 協助使用者快速找到符合條件的品項。</li>
             </ul>
@@ -299,7 +299,7 @@ export default function Resume() {
             backend="Node.js"
             other="MySQL、Figma"
           >
-            <ul className="list-inside list-disc space-y-1 text-gray-700">
+            <ul className="mt-0.5 list-inside list-disc space-y-1 text-gray-700">
               <li>後台架設 - 方便管理商品上下架及數量價格更改。</li>
               <li>
                 表單設計 - 確認使用者資訊及需求並傳入資料庫中，集中管理資料。
