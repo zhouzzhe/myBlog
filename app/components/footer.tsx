@@ -60,7 +60,7 @@ function ContactInfo({ label, content, className }: ContactInfoProp) {
   return (
     <motion.div
       ref={titleRef}
-      className="group m-5 cursor-pointer transition-all hover:scale-105"
+      className="group m-5 cursor-pointer transition-all hover:scale-105 h-5"
       initial="initial"
       onClick={handleClick}
     >

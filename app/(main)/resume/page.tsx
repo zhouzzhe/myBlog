@@ -153,6 +153,11 @@ export default function Resume() {
               <i className="bx bx-sm bxl-gmail"></i>
               <span>zzhe828@gmail.com</span>
             </div>
+            <div className="flex items-center gap-2">
+              <Link href="https://github.com/zhouzzhe">
+                <i className="bx bx-sm bxl-github"></i>
+              </Link>
+            </div>
             {/* <span className="hidden text-gray-400 sm:block">|</span>
             <div className="flex items-center gap-2">
               <i className="bx bx-sm bx-mobile"></i>
@@ -208,10 +213,11 @@ export default function Resume() {
               <SkillCard label="HTML" iconClass="bxl-html5" />
               <SkillCard label="JavaScript" iconClass="bxl-javascript" />
               <SkillCard label="TypeScript" iconClass="bxl-typescript" />
+              <SkillCard label="jQuery" iconClass="bxl-jquery" />
               <SkillCard label="React" iconClass="bxl-react" />
+              {/* <SkillCard label="Redux" iconClass="bxl-redux"/> */}
               <SkillCard label="Bootstrap" iconClass="bxl-bootstrap" />
               <SkillCard label="Tailwind" iconClass="bxl-tailwind-css" />
-              <SkillCard label="jQuery" iconClass="bxl-jquery" />
             </div>
           </div>
           <div className="w-1/2 px-5 sm:px-20">
@@ -233,7 +239,8 @@ export default function Resume() {
         <SectionTitle label="自傳" />
         <div className="mx-auto max-w-7xl px-5 leading-relaxed sm:px-24">
           <p>
-            我是周哲緯，畢業於中興大學。善於溝通且冷靜客觀，認真負責。熱情接觸新事物，對於交辦事項總是有規劃且盡力完成。
+            我是周哲緯，畢業於中興大學。善於溝通且冷靜客觀，認真負責。熱情接觸新事物，對於交辦事項總是有規劃且盡力完成。我是一位注重介面細節、熱愛觀察使用者行為的前端工程師，致力於打造直覺、流暢的使用者體驗。
+            喜歡鑽研技術，樂於將抽象概念轉化為具體可用的產品。
           </p>
 
           <h2 className="mt-6 font-bold">【社團經驗】</h2>
@@ -265,7 +272,10 @@ export default function Resume() {
 
           <h2 className="mt-6 font-bold">【轉職契機】</h2>
           <p>
-            畢業後對程式語言產生興趣，除自學線上資源外，也報名了資展國際的課程，深入學習後更加確定對程式語言的喜愛。於網路中自己探索、尋找問題的解答，並利用各種不同的技術實現更有效率解決方案，對此我感到樂此不疲。
+            畢業後對程式語言產生興趣，在自學HTML、CSS、JavaScript
+            的過程中，我發現前端開發結合了邏輯與美術、視覺，是一項可以將創意快速實現的工作，讓我深深著迷。
+            為了系統性學習，也報名了資展國際的課程，深入學習 React、RWD、RESTful
+            API等技術，並透過實作專案累積實戰經驗，強化了解決問題與獨立開發的能力。於網路中自己探索、尋找問題的解答，並利用各種不同的技術實現更有效率解決方案，對此我感到樂此不疲。
           </p>
 
           <p className="mt-6">

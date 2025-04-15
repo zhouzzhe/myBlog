@@ -74,6 +74,7 @@ export default function Header() {
           ) : item === "Album" ? (
             <Link
               href="https://rindou-zine.vercel.app/"
+              target="_blank"
               key={index}
               className="mx-3 cursor-pointer px-3 py-1 transition-all hover:scale-105 odd:hover:text-myOrange"
             >
